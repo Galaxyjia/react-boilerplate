@@ -1,0 +1,16 @@
+@font-face{
+    font-family: 'MyFont';
+    src: url('../public/my-font.ttf') format('ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+.hello {
+    color:red;
+    font-family: 'MyFont';
+}
+
+body{
+    background:rgb(171, 214, 179);
+}
