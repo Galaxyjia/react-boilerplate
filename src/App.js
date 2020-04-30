@@ -4,7 +4,6 @@ import 'moment/locale/zh-cn';
 import Icon from '../public/icon.jpg';
 import "./style.css";
 
-
 class App extends Component {
     constructor(props) {
         super(props);
