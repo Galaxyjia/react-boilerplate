@@ -98,7 +98,31 @@ yarn add happypack -D
 
 ##### webpack自带优化功能
 
-
 ##### 懒加载
 
 ##### 热更新
+
+##### 应用Es6新特性会报错，需要babel.config.json里配置plugins
+yarn add @babel/plugin-proposal-class-properties 
+
+##### lazy Suspense
+组件懒加载
+getDerivedStateFromError 更优雅
+
+###### normalize.css 统一浏览器默认样式
+yarn add normalize.css -D
+
+##### react-router-dom
+yarn add react-router-dom -D
+
+##### antd 美化
+yarn add antd -D
+
+##### antd icon
+yarn add @ant-design/icons -D
+
+##### withRouter
+组件里跳转路由
+
+
+#####  antd dataSource columns 等列表渲染必须要设置key

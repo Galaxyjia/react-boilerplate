@@ -1,23 +1,29 @@
-import React,{Component} from 'react';
-import moment from 'moment';
-import 'moment/locale/zh-cn';
+import React from 'react';
+import {Switch,Route,Redirect} from 'react-router-dom';
+import {adminRoutes} from './routes';
+import Frame from './components/Frame/Index'
+import './App.css';
 
-
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  };
-    }
-    render() {
-        return (
-            <div className="main">
-                <p>Musicook</p>
-                <div>{moment().endOf('day').fromNow()}</div>
-            </div>
-        );
-    }
+const App=()=>{
+    return(
+        <Frame>
+            <Switch>
+                {adminRoutes.map(route=>{
+                    return (
+                        <Route 
+                            key={route.path}
+                            path={route.path}
+                            exact={route.exact}
+                            render={routeProps=>{
+                                return ( <route.component {...routeProps}/> );
+                            }}
+                        />
+                    );
+                })}
+                <Redirect to="/404" />
+            </Switch>
+        </Frame>
+    );
 }
 
 export default App;
-
-// ReactDom.render(<App />,document.getElementById('root'));
