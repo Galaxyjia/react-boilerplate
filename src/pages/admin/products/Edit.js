@@ -13,6 +13,15 @@ function Edit(props) {
         console.log('failed');
       };
 
+    // 需要返回Promise
+    const priceValidate = (rule,value)=>{
+        if(value*1>100){
+            return Promise.reject("价格不能大于100");
+        }else{
+            return Promise.resolve("价格成功");
+        }
+    }
+
     return (
         <Card title="商品编辑">
             <Form onFinish={onFinish} onFinishFailed={onFinishFailed}>
@@ -27,6 +36,20 @@ function Edit(props) {
                     ]}>
                     <Input placeholder="请输入商品名字"></Input>
                 </Form.Item>
+                <Form.Item 
+                label="价格" 
+                name="price"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Please input your price!',
+                    },
+                    {
+                        validator:priceValidate
+                    }
+                ]}>
+                <Input placeholder="请输入商品价格"></Input>
+            </Form.Item>
                 <Form.Item>
                     <Button htmlType="submit" type="primary">保存</Button>
                 </Form.Item>
